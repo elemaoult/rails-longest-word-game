@@ -1,0 +1,17 @@
+<br>
+<h1>New Game!</h1>
+<h2><% @letters.each do |letter|%>
+    <span class="badge bg-primary"><%= letter %></span>
+    <% end%>
+</h2>
+<br><br>
+<h4>What's the longest word you can find ?</h4>
+<form class="d-flex bd-highlight" action="/score" method="post">
+  <div class="w-50">
+    <input type="text" class="form-control" name="word" value="<%= params[:word] %>" placeholder="Type your word here...">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary mb-3">Play</button>
+  </div>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
